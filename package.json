@@ -1,6 +1,6 @@
 {
   "name": "react-native-hashkit",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Light weight React Native hash library written in kotlin and swift.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
