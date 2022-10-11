@@ -1,7 +1,7 @@
 {
   "name": "react-native-hashkit",
-  "version": "0.1.0",
-  "description": "test",
+  "version": "0.0.1",
+  "description": "Light weight React Native hash library written in kotlin and swift.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -33,7 +33,13 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "sha256",
+    "hmac",
+    "hash",
+    "native",
+    "swift",
+    "kotlin"
   ],
   "repository": "https://github.com/4cc3ssX/react-native-hashkit",
   "author": "4cc3ssX <4cc3sskr0xx@gmail.com> (https://github.com/4cc3ssX)",

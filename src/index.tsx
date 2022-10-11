@@ -6,7 +6,9 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
-const Hashkit = NativeModules.Hashkit  ? NativeModules.Hashkit  : new Proxy(
+const Hashkit = NativeModules.Hashkit
+  ? NativeModules.Hashkit
+  : new Proxy(
       {},
       {
         get() {
@@ -15,6 +17,23 @@ const Hashkit = NativeModules.Hashkit  ? NativeModules.Hashkit  : new Proxy(
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return Hashkit.multiply(a, b);
-}
+/**
+ * @param message The message to hash.
+ * @param key The secret key.
+ * @return The HMAC (encoded in hex).
+ *
+ * @example const result = hmacSHA256(message, key);
+ */
+export const hmacSHA256 = async (
+  message: string,
+  key: string
+): Promise<string> => Hashkit.hmacSHA256(message, key);
+
+/**
+ * @param data The data to hash.
+ * @return The sha256 hash.
+ *
+ * @example const result = sha256(data);
+ */
+export const sha256 = async (data: string): Promise<string> =>
+  Hashkit.sha256(data);
