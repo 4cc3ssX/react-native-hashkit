@@ -1,5 +1,7 @@
 # react-native-hashkit
 
+![react-native-hashkit logo](assets/logo.svg "React Native Hashkit")
+
 Mini React Native crypto library written in [kotlin](https://kotlinlang.org/) and [swift](https://www.swift.org/).
 
 ## Installation
