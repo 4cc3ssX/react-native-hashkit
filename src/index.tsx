@@ -17,12 +17,21 @@ const Hashkit = NativeModules.Hashkit
       }
     );
 
+export type AvailableAlgorithms =
+  | 'md5'
+  | 'sha1'
+  | 'sha224'
+  | 'sha384'
+  | 'sha256'
+  | 'sha512'
+  | 'hmacSHA256';
+
 /**
  * @param message The message to hash.
  * @param key The secret key.
  * @return The HMAC (encoded in hex).
  *
- * @example const result = hmacSHA256(message, key);
+ * @example const hash = await hmacSHA256(message, key);
  */
 export const hmacSHA256 = async (
   message: string,
@@ -31,9 +40,52 @@ export const hmacSHA256 = async (
 
 /**
  * @param data The data to hash.
+ * @return The md5 hash.
+ *
+ * @example const hash = await md5(data);
+ */
+export const md5 = async (data: string): Promise<string> => Hashkit.md5(data);
+
+/**
+ * @param data The data to hash.
+ * @return The sha1 hash.
+ *
+ * @example const hash = await sha1(data);
+ */
+export const sha1 = async (data: string): Promise<string> => Hashkit.sha1(data);
+
+/**
+ * @param data The data to hash.
+ * @return The sha384 hash.
+ *
+ * @example const hash = await sha384(data);
+ */
+export const sha384 = async (data: string): Promise<string> =>
+  Hashkit.sha384(data);
+
+/**
+ * @param data The data to hash.
+ * @return The sha224 hash.
+ *
+ * @example const hash = await sha224(data);
+ */
+export const sha224 = async (data: string): Promise<string> =>
+  Hashkit.sha224(data);
+
+/**
+ * @param data The data to hash.
  * @return The sha256 hash.
  *
- * @example const result = sha256(data);
+ * @example const hash = await sha256(data);
  */
 export const sha256 = async (data: string): Promise<string> =>
   Hashkit.sha256(data);
+
+/**
+ * @param data The data to hash.
+ * @return The sha512 hash.
+ *
+ * @example const hash = await sha512(data);
+ */
+export const sha512 = async (data: string): Promise<string> =>
+  Hashkit.sha512(data);

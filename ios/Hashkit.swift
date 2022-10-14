@@ -7,15 +7,45 @@ class Hashkit: NSObject {
     static func requiresMainQueueSetup() -> Bool {
         return false
     }
-    @objc(hmacSHA256:withKey:withResolver:withRejecter:)
-    func hmacSHA256(message: String, key: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
-        HMACHandler(message: message, key: key, variant: .sha2(SHA2.Variant.sha256), resolve: resolve, reject: reject)
+    @objc(md5:withResolver:withRejecter:)
+    func md5(data: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+        let hash = data.bytes.md5()
+        let hexString: String = uInt8ArrayToHex(data: hash)
+        resolve(hexString)
+    }
+    @objc(sha1:withResolver:withRejecter:)
+    func sha1(data: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+        let hash = data.bytes.sha1()
+        let hexString: String = uInt8ArrayToHex(data: hash)
+        resolve(hexString)
+    }
+    @objc(sha224:withResolver:withRejecter:)
+    func sha224(data: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+        let hash = data.bytes.sha224()
+        let hexString: String = uInt8ArrayToHex(data: hash)
+        resolve(hexString)
     }
     @objc(sha256:withResolver:withRejecter:)
     func sha256(data: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
         let hash = data.bytes.sha256()
         let hexString: String = uInt8ArrayToHex(data: hash)
         resolve(hexString)
+    }
+    @objc(sha384:withResolver:withRejecter:)
+    func sha384(data: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+        let hash = data.bytes.sha384()
+        let hexString: String = uInt8ArrayToHex(data: hash)
+        resolve(hexString)
+    }
+    @objc(sha512:withResolver:withRejecter:)
+    func sha512(data: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+        let hash = data.bytes.sha512()
+        let hexString: String = uInt8ArrayToHex(data: hash)
+        resolve(hexString)
+    }
+    @objc(hmacSHA256:withKey:withResolver:withRejecter:)
+    func hmacSHA256(message: String, key: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
+        HMACHandler(message: message, key: key, variant: .sha2(SHA2.Variant.sha256), resolve: resolve, reject: reject)
     }
 }
 

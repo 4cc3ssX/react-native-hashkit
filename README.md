@@ -1,5 +1,7 @@
 # react-native-hashkit
-Light weight React Native hash library written in [kotlin](https://kotlinlang.org/) and [swift](https://www.swift.org/).
+
+Mini React Native crypto library written in [kotlin](https://kotlinlang.org/) and [swift](https://www.swift.org/).
+
 ## Installation
 
 ```sh
@@ -34,13 +36,14 @@ const result = await hmacSHA256('message', 'secret key');
 
 ## Roadmap
 
+- [X] MD5
+- [X] SHA-1
+- [X] SHA-224
+- [X] SHA-384
 - [X] SHA-256
+- [X] SHA-512
 - [X] HMAC-SHA256
-- [ ] SHA-1
-- [ ] SHA-512
-- [ ] SHA-224
-- [ ] SHA-384
-- [ ] MD5
+- [ ] Aes256GCM
 
 ## Contributing
 
